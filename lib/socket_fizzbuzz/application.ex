@@ -10,6 +10,10 @@ defmodule SocketFizzbuzz.Application do
     children = [
       # Starts a worker by calling: SocketFizzbuzz.Worker.start_link(arg)
       # {SocketFizzbuzz.Worker, arg},
+      %{
+        id: SocketFizzbuzz.Server,
+        start: {SocketFizzbuzz.Server, :start_link, []}
+      }
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
